@@ -1,3 +1,15 @@
+<?php
+require 'config.php';
+if(!empty($_SESSION["id"])){
+  $id = $_SESSION["id"];
+  $result = mysqli_query($conn, "SELECT * FROM tb_user WHERE id = $id");
+  $row = mysqli_fetch_assoc($result);
+}
+else{
+  header("Location: login.php");
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,13 +30,28 @@
         text-align:center;
         padding-bottom:2rem;
     }
+    .flex{
+        display:flex;
+        justify-content:space-between;
+    }
+    .flex button{
+        width:12rem;
+        margin-top:1rem;
+        font-size:2rem;
+    }
 </style>
 </head>
 <body>
+    <div class="flex">
+        <h1>Welcome <?php echo $row["name"]; ?></h1>
+
+        <h2 style="align=center;">CAR POOLING</h2>
+        <button type="submit" class="btn btn-danger" onclick="location='logout.php'">Logout</button>
+    </div>
 <div class="container">
     <div class="row">
     <br />
-    <h2 align="center">CAR POOLING</h2>
+    
     <br />
         <div class="col-md-3">                                
             <div class="list-group">
@@ -65,7 +92,7 @@ $(document).ready(function(){
     }
     $('#price_range').slider({
         range:true,
-        min:0,
+        min:1000,
         max:10000,
         values:[1000, 10000],
         step:500,
@@ -81,16 +108,8 @@ $(document).ready(function(){
 </script>
 
 
-<!-- <div class="list-group b">
-  <a href="http://localhost/ca3/carproject.php" class="list-group-item list-group-item-action active">
-  <h4>Fill the details</h4>
-  </a>
-</div> -->
 </body>
 </html>
 
-
-
-<!-- car pooling form -->
 
 
