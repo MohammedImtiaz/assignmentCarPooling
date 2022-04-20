@@ -27,9 +27,22 @@ else{
 		margin:auto;
 		padding-top:5rem;
 	}
+	.flex{
+        display:flex;
+        justify-content:space-between;
+    }
+	.flex button{
+        width:12rem;
+        margin-top:1rem;
+        font-size:2rem;
+    }
 </style>
 <body>
-	<h1>CAR POOLING</h1>
+	<div class="flex">
+		<h1>CAR POOLING</h1>
+		<button type="submit" class="btn btn-primary" onclick="location='index.php'">Home</button>
+	</div>
+	
 
 <div id='form' >
 

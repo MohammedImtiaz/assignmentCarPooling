@@ -19,7 +19,7 @@ if(isset($_POST["action"]))
                     <h4 style="text-align:center;" class="text-danger" >'. $row->price .'</h4>
                 </div>
                 <div class="list-group b">
-                    <a href="http://localhost/ca3/carproject.php" class="list-group-item list-group-item-action active" target="_blank">
+                    <a href="carproject.php" class="list-group-item list-group-item-action active" target="_blank">
                     <h4>Select</h4>
                     </a>
                 </div>
